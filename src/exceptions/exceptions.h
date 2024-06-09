@@ -11,9 +11,10 @@
 /* ************************************************************************** */
 
 #ifndef EXCEPTIONS_H
-# define EXCEPTIONS_H
+#define EXCEPTIONS_H
 
-int				exception_syntax(char *str_n); 
-int				exception_duplicate(t_stack_node *a, int n);
+int exception_syntax(char *str_n);
+int exception_duplicate(t_stack *a, int n);
+void display_error(char *error_msg, int yeet);
 
 #endif

@@ -11,12 +11,14 @@
 /* ************************************************************************** */
 
 #ifndef UTILS_H
-# define UTILS_H
+#define UTILS_H
+#include "../push_swap.h"
 
-int     count_r(t_stack *stack, int index);
-int     *parse(int argc, char **argv, int count);
-int     check_digits(int argc, char **argv);
-void	push_stack(t_stack *stack, int index, int data);
-int     ft_index(int n, int *arr);
+int count_r(t_stack *stack, int index);
+int *parse(int argc, char **argv, int count);
+int check_digits(int argc, char **argv);
+int ft_index(int n, int *arr);
+int ft_sqrt(int number);
+int checkd_bf(int *numbers, int count);
 
 #endif

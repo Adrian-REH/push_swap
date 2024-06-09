@@ -12,9 +12,9 @@
 
 #include "utils.h"
 
-int	count_r(t_node *stack, int index)
+int count_r(t_stack *stack, int index)
 {
-	int	counter;
+	int counter;
 
 	counter = 0;
 	while (stack && stack->s_index != index)
@@ -23,18 +23,4 @@ int	count_r(t_node *stack, int index)
 		counter++;
 	}
 	return (counter);
-}
-
-void	push_stack(t_stack *stack, int index, int data)
-{
-	t_node	*tmp;
- 
-	tmp = (t_node *)malloc(sizeof(t_node));
-	if (!tmp)
-		return ;
-	tmp->data = data;
-	tmp->s_index = index;
-	tmp->next = stack->head;
-	stack->head = tmp;
-	stack->size++;
 }

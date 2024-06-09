@@ -24,19 +24,20 @@ COMMANDS_DIR		=	$(SRC_DIR)commands/swap.c \
 						$(SRC_DIR)commands/push.c \
 
 
-EXCEPTION_DIR		=	$(SRC_DIR)exception/handler_exception.c
+EXCEPTION_DIR		=	$(SRC_DIR)exceptions/handler_exceptions.c
 
 UTILS_DIR			=	$(SRC_DIR)utils/arg_utils.c \
 						$(SRC_DIR)utils/stack_utils.c \
+						$(SRC_DIR)utils/utils.c \
 
-ALGORITHM_DIR		=	$(SRC_DIR)algorithm/sort_three.c \
-						$(SRC_DIR)algorithm/sort_stack.c \
+ALGORITHM_DIR		=	$(SRC_DIR)algorithms/ksort.c \
 
 
 PUSH_SWAP_DIR		=	$(SRC_DIR)push_swap.c \
 
+DATA_DIR			=	$(SRC_DIR)data/stack.c \
 
-SRCS 				= $(COMMANDS_DIR) $(PUSH_SWAP_DIR) $(STACK_DIR) $(ALGORITHM_DIR) $(EXCEPTION_DIR) $(UTILS_DIR) 
+SRCS 				= $(COMMANDS_DIR) $(PUSH_SWAP_DIR) $(DATA_DIR) $(STACK_DIR) $(ALGORITHM_DIR) $(EXCEPTION_DIR) $(UTILS_DIR) 
 
 OBJ 				= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 

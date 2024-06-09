@@ -11,11 +11,13 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include "../utils/utils.h"
+#include "../commands/commands.h"
 
-void	k_sort1(t_stack *stack_a, t_stack *stack_b, int length)
+void k_sort1(t_stack *stack_a, t_stack *stack_b, int length)
 {
-	int	i;
-	int	range;
+	int i;
+	int range;
 
 	i = 0;
 	range = ft_sqrt(length) * 14 / 10;
@@ -40,10 +42,10 @@ void	k_sort1(t_stack *stack_a, t_stack *stack_b, int length)
 	}
 }
 
-void	k_sort2(t_stack *stack_a, t_stack *stack_b, int length)
+void k_sort2(t_stack *stack_a, t_stack *stack_b, int length)
 {
-	int	rb_count;
-	int	rrb_count;
+	int rb_count;
+	int rrb_count;
 
 	while (length - 1 >= 0)
 	{
@@ -51,15 +53,15 @@ void	k_sort2(t_stack *stack_a, t_stack *stack_b, int length)
 		rrb_count = (length + 3) - rb_count;
 		if (rb_count <= rrb_count)
 		{
-			while (stack_b->head->s_index != length - 1)
-				rotate(stack_b, 'b');
+			while (stack_b->s_index != length - 1)
+				rotate(stack_b, NULL, 'b');
 			push(stack_a, stack_b, 'a');
 			length--;
 		}
 		else
 		{
-			while (stack_b->head->s_index != length - 1)
-				rev_rotate(stack_b, NULL,'b');
+			while (stack_b->s_index != length - 1)
+				rev_rotate(stack_b, NULL, 'b');
 			push(stack_a, stack_b, 'a');
 			length--;
 		}
