@@ -11,20 +11,21 @@
 /* ************************************************************************** */
 
 #include "commands.h"
+#include "../data/data.h"
 
-void    push(t_stack *dst, t_stack *src, char c)
+void push(t_stack **dst, t_stack **src, char c)
 {
-	t_stack	*tmp;
+	t_stack *tmp;
 
 	tmp = (t_stack *)malloc(sizeof(t_stack));
 	if (!tmp)
-		return ;
-	tmp->data = src->data;
-	tmp->s_index = src->s_index;
-	tmp->next = dst;
-	dst = tmp;
-    if (c == 'a')
-        write(1, "pa\n", 3);
-    else if (c == 'b')
-        write(1, "pb\n", 3);
+		return;
+	tmp->s_index = (*src)->s_index;
+	tmp->data = pop_stack(src);
+	tmp->next = *dst;
+	(*dst) = tmp;
+	if (c == 'a')
+		write(1, "pa\n", 3);
+	else if (c == 'b')
+		write(1, "pb\n", 3);
 }

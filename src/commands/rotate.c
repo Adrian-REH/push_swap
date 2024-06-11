@@ -12,16 +12,16 @@
 
 #include "commands.h"
 
-void    rotate(t_stack *head, t_stack *both, char c)
+void rotate(t_stack **head, t_stack **both, char c)
 {
-	t_stack	*tmp;
-	t_stack	*current;
+  t_stack *tmp;
+  t_stack *current;
 
-  if (!head || !(head->next))
-    return ;
-  tmp = head;
-  head = tmp->next;
-  current = head;
+  if (*head == NULL || ((*head)->next == NULL))
+    return;
+  tmp = *head;
+  *head = tmp->next;
+  current = *head;
   while (current->next != NULL)
     current = current->next;
   current->next = tmp;
@@ -31,6 +31,5 @@ void    rotate(t_stack *head, t_stack *both, char c)
   else if (c == 'b' && both == NULL)
     write(1, "rb\n", 3);
   else if (c == 's' && both != NULL)
-      (rotate(both, NULL, '\0'), write(1, "rr\n", 3));
-
+    (rotate(both, NULL, '\0'), write(1, "rr\n", 3));
 }

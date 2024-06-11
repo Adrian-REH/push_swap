@@ -2,3 +2,5 @@ push_sawp_visualizer/
 push_swap_visualizer
 push_swap
 .vscode/settings.json
+.vscode/c_cpp_properties.json
+.vscode/launch.json

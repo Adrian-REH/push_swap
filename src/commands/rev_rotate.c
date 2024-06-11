@@ -12,25 +12,25 @@
 
 #include "commands.h"
 
-void			rev_rotate(t_stack *head, t_stack *both, char c)
+void rev_rotate(t_stack **head, t_stack **both, char c)
 {
 
-  t_stack	*current;
-  t_stack	*tmp;
+  t_stack *current;
+  t_stack *tmp;
 
-  if (!head || !((head)->next))
-      return ;
-  current = head;
+  if (!(*head) || !((*head)->next))
+    return;
+  current = *head;
   while (current->next->next != NULL)
     current = current->next;
   tmp = current->next;
   current->next = NULL;
-  tmp->next = head;
-  head = tmp;
-  if (c == 'a' && both == NULL)
+  tmp->next = *head;
+  *head = tmp;
+  if (c == 'a' && (both) == NULL)
     write(1, "rra\n", 4);
-  else if (c == 'b' && both == NULL)
+  else if (c == 'b' && (both) == NULL)
     write(1, "rrb\n", 4);
-  else if (c == 's' && both != NULL)
-      (rotate(both, NULL, '\0'), write(1, "rrr\n", 4));
+  else if (c == 's' && (both) != NULL)
+    (rotate(both, NULL, '\0'), write(1, "rrr\n", 4));
 }

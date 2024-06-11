@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 #ifndef ALGORITHMS_H
-# define ALGORITHMS_H
+#define ALGORITHMS_H
 
-void	k_sort1(t_stack *stack_a, t_stack *stack_b, int length);
-void	k_sort2(t_stack *stack_a, t_stack *stack_b, int length);
+void k_sort1(t_stack **stack_a, t_stack **stack_b, int length);
+void k_sort2(t_stack *stack_a, t_stack *stack_b, int length);
 
 #endif

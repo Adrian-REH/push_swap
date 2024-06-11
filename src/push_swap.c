@@ -17,31 +17,33 @@
 #include "data/data.h"
 #include "exceptions/exceptions.h"
 
-void sort(t_stack *stack_a, t_stack *stack_b, int *numbers, int length)
+t_stack *sort(t_stack *stack_a, t_stack *stack_b, int *numbers, int length)
 {
 	numbers++;
-	// if (is_sorted(stack_a))
-	// {
-	// 	free(numbers);
-	// 	free_stack(stack_a);
-	// 	display_error("", 1);
-	//}
+	if (is_sorted(stack_a))
+	{
+		free(numbers);
+		free_stack(stack_a);
+		display_error("", 1);
+	}
 	if (length == 2)
-		swap(stack_a, NULL, 'a');
+		swap(&stack_a, NULL, 'a');
 	// else if (length == 3)
 	// 	simple_sort(stack_a, length);
 	// else if (length <= 7)
 	// 	s_insertion_sort(stack_a, stack_b, length);
 	else if (length > 7)
 	{
-		k_sort1(stack_a, stack_b, length);
+
+		k_sort1(&stack_a, &stack_b, length);
 		k_sort2(stack_a, stack_b, length);
 	}
 	else
 		display_error("Error no hay numeros\n", 1);
+	return stack_a;
 }
 
-void init(t_stack *stack_a, int *nb, int c)
+t_stack *init(t_stack *stack_a, int *nb, int c)
 {
 	int i;
 	t_stack *tmp;
@@ -49,27 +51,32 @@ void init(t_stack *stack_a, int *nb, int c)
 	i = c - 1;
 	while (i >= 0)
 	{
-		push_stack(stack_a, 0, nb[i]);
+		stack_a = push_stack(stack_a, 0, nb[i]);
 		i--;
 	}
-	// ins_sort(nb, c);
+	ins_sort(nb, c);
+	i = 0;
+	tmp = stack_a;
+
 	while (tmp)
 	{
 		tmp->s_index = ft_index(tmp->data, nb);
 		tmp = tmp->next;
 	}
-	stack_a = tmp;
+	return stack_a;
 }
 
 int main(int ac, char **av)
 {
-	t_stack stack_a;
-	t_stack stack_b;
+	t_stack *stack_a;
+	t_stack *stack_b;
 	int count;
 	int *numbers;
 
-	if (ac == 1)
-		display_error("Error: no se pasaron numeros\n", 1);
+	//	if (ac == 1)
+	//		display_error("Error: no se pasaron numeros\n", 1);
+	stack_a = NULL;
+	stack_b = NULL;
 	count = check_digits(ac, av);
 	numbers = parse(ac, av, count);
 	if (count <= 1 || checkd_bf(numbers, count))
@@ -79,9 +86,9 @@ int main(int ac, char **av)
 			display_error("Error: Un numero", 1);
 		display_error("Error: Numeros repetidos", 1);
 	}
-	init(&stack_a, numbers, count);
-	sort(&stack_a, &stack_b, numbers, count);
+	stack_a = init(stack_a, numbers, count);
+	stack_a = sort(stack_a, stack_b, numbers, count);
 	free(numbers);
-	free_stack(&stack_a);
+	free_stack(stack_a);
 	return (0);
 }

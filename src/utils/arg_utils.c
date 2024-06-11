@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "utils.h"
-#include "exceptions/exceptions.h"
-#include "data/data.h"
+#include "../exceptions/exceptions.h"
+#include "../data/data.h"
 
 int check_digits(int argc, char **argv)
 {

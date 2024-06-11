@@ -11,17 +11,17 @@
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#define PUSH_SWAP_H
 
-# include <stdbool.h>
-# include <limits.h>
-# include "../libft/libft.h"
+#include <stdbool.h>
+#include <limits.h>
+#include "../libft/libft.h"
 
 typedef struct s_stack
 {
-	int				data;
-	int				s_index;
-	struct s_stack	*next;
-}					t_stack;
+	int data;
+	int s_index;
+	struct s_stack *next;
+} t_stack;
 
 #endif

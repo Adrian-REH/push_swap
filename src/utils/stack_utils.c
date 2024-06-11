@@ -24,3 +24,17 @@ int count_r(t_stack *stack, int index)
 	}
 	return (counter);
 }
+
+int is_sorted(t_stack *stack)
+{
+	t_stack *tmp;
+
+	tmp = stack;
+	while (tmp->next)
+	{
+		if (tmp->data > tmp->next->data)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}

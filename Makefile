@@ -3,13 +3,12 @@ NAME				= push_swap
 
 
 LIBFT				= libft/libft.a
-INC					= src/
 SRC_DIR				= src/
 OBJ_DIR				= src/obj/
 
 
 CC					= gcc
-CFLAGS				= -Wall -Werror -Wextra -I
+CFLAGS				= -Wall -Werror -Wextra -g
 RM					= rm -f
 
 
@@ -36,6 +35,8 @@ ALGORITHM_DIR		=	$(SRC_DIR)algorithms/ksort.c \
 PUSH_SWAP_DIR		=	$(SRC_DIR)push_swap.c \
 
 DATA_DIR			=	$(SRC_DIR)data/stack.c \
+						$(SRC_DIR)data/arg.c \
+
 
 SRCS 				= $(COMMANDS_DIR) $(PUSH_SWAP_DIR) $(DATA_DIR) $(STACK_DIR) $(ALGORITHM_DIR) $(EXCEPTION_DIR) $(UTILS_DIR) 
 
