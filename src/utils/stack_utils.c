@@ -38,3 +38,19 @@ int is_sorted(t_stack *stack)
 	}
 	return (1);
 }
+
+int get_min_index(t_stack *stack)
+{
+	t_stack *current;
+	int min_index;
+
+	current = stack;
+	min_index = current->s_index;
+	while (current->next)
+	{
+		current = current->next;
+		if (current->s_index < min_index)
+			min_index = current->s_index;
+	}
+	return (min_index);
+}

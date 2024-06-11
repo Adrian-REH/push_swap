@@ -30,7 +30,7 @@ UTILS_DIR			=	$(SRC_DIR)utils/arg_utils.c \
 						$(SRC_DIR)utils/utils.c \
 
 ALGORITHM_DIR		=	$(SRC_DIR)algorithms/ksort.c \
-
+						$(SRC_DIR)algorithms/sort.c \
 
 PUSH_SWAP_DIR		=	$(SRC_DIR)push_swap.c \
 

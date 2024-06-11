@@ -22,11 +22,11 @@ void swap(t_stack **stack, t_stack **both, char c)
   *stack = (tmp->next);
   tmp->next = (*stack)->next;
   (*stack)->next = tmp;
-  if (c == 'a' && *both == NULL)
+  if (c == 'a' && both == NULL)
     write(1, "ra\n", 3);
-  else if (c == 'b' && *both == NULL)
+  else if (c == 'b' && both == NULL)
     write(1, "ra\n", 3);
-  else if (c == 's' && *both != NULL)
+  else if (c == 's' && both != NULL)
   {
     swap(both, NULL, '\0');
     write(1, "ss\n", 3);

@@ -15,5 +15,7 @@
 
 void k_sort1(t_stack **stack_a, t_stack **stack_b, int length);
 void k_sort2(t_stack *stack_a, t_stack *stack_b, int length);
+void s_insertion_sort(t_stack *stack_a, t_stack *stack_b, int length);
+void simple_sort(t_stack *stack, int length);
 
 #endif

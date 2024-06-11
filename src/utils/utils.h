@@ -21,5 +21,6 @@ int ft_index(int n, int *arr);
 int ft_sqrt(int number);
 int checkd_bf(int *numbers, int count);
 int is_sorted(t_stack *stack);
+int get_min_index(t_stack *stack);
 
 #endif

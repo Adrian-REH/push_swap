@@ -19,19 +19,18 @@
 
 t_stack *sort(t_stack *stack_a, t_stack *stack_b, int *numbers, int length)
 {
-	numbers++;
 	if (is_sorted(stack_a))
 	{
 		free(numbers);
 		free_stack(stack_a);
-		display_error("", 1);
+		display_error("Error: Stack ordenado", 1);
 	}
 	if (length == 2)
 		swap(&stack_a, NULL, 'a');
-	// else if (length == 3)
-	// 	simple_sort(stack_a, length);
-	// else if (length <= 7)
-	// 	s_insertion_sort(stack_a, stack_b, length);
+	else if (length == 3)
+		simple_sort(stack_a, length);
+	else if (length <= 7)
+		s_insertion_sort(stack_a, stack_b, length);
 	else if (length > 7)
 	{
 
@@ -73,8 +72,8 @@ int main(int ac, char **av)
 	int count;
 	int *numbers;
 
-	//	if (ac == 1)
-	//		display_error("Error: no se pasaron numeros\n", 1);
+	if (ac == 1)
+		display_error("Error: no se pasaron numeros\n", 1);
 	stack_a = NULL;
 	stack_b = NULL;
 	count = check_digits(ac, av);
