@@ -30,16 +30,15 @@ t_stack *sort(t_stack *stack_a, t_stack *stack_b, int *numbers, int length)
 	else if (length == 3)
 		simple_sort(&stack_a, length);
 	else if (length <= 7)
-		stack_a = s_insertion_sort(stack_a, stack_b, length);
+		s_insertion_sort(&stack_a, stack_b, length);
 	else if (length > 7)
 	{
-
 		k_sort1(&stack_a, &stack_b, length);
 		stack_a = k_sort2(stack_a, stack_b, length);
 	}
 	else
 		display_error("Error no hay numeros\n", 1);
-	return stack_a;
+	return (stack_a);
 }
 
 static t_stack *init(t_stack *stack_a, int *nb, int c)

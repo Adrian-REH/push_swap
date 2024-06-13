@@ -48,7 +48,7 @@ BONUS_DIR			=	$(CHK_DIR)data/arg.c \
 SRCS 				= $(COMMANDS_DIR) $(PUSH_SWAP_DIR) $(DATA_DIR) $(STACK_DIR) $(ALGORITHM_DIR) $(EXCEPTION_DIR) $(UTILS_DIR) 
 CHKS 				= $(COMMANDS_DIR) $(BONUS_DIR) $(DATA_DIR) $(STACK_DIR) $(ALGORITHM_DIR) $(EXCEPTION_DIR) $(UTILS_DIR) 
 OBJ 				= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
-BONUS_OBJ 			= $(CHKS:.c=.o)
+BONUS_OBJ 			= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(CHKS))
 
 start:				
 					@make all
@@ -56,7 +56,7 @@ start:
 $(LIBFT):
 					@make -C ./libft
 
-bonus: 				$(BONUS_OBJ) $(LIBFT) 
+bonus: 				@$(BONUS_OBJ) $(LIBFT) 
 					@$(CC) $(CFLAGS) $(INC) $(BONUS_OBJ) $(LIBFT) -o $(NAME)
 
 all: 				$(NAME)
