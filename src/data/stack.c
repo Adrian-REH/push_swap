@@ -1,18 +1,17 @@
 
 #include "data.h"
 
-t_stack *push_stack(t_stack *stack, int index, int data)
+void push_stack(t_stack **stack, int index, int data)
 {
     t_stack *tmp;
 
     tmp = (t_stack *)malloc(sizeof(t_stack));
     if (!tmp)
-        return NULL;
+        return;
     tmp->data = data;
     tmp->s_index = index;
-    if (stack)
-        tmp->next = stack;
-    return tmp;
+    tmp->next = *stack;
+    *stack = tmp;
     // printf("stack_a data: %d | index: %d | data.supposed: %d\n", stack->data, stack->s_index, data);
 }
 

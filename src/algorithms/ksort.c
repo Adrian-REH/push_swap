@@ -13,6 +13,7 @@
 #include "../push_swap.h"
 #include "../utils/utils.h"
 #include "../commands/commands.h"
+#include "algorithms.h"
 
 void k_sort1(t_stack **stack_a, t_stack **stack_b, int length)
 {
@@ -42,11 +43,10 @@ void k_sort1(t_stack **stack_a, t_stack **stack_b, int length)
 	}
 }
 
-void k_sort2(t_stack *stack_a, t_stack *stack_b, int length)
+t_stack *k_sort2(t_stack *stack_a, t_stack *stack_b, int length)
 {
 	int rb_count;
 	int rrb_count;
-	printf("ksort2: data: %d | \n", stack_b->data);
 
 	while (length - 1 >= 0)
 	{
@@ -67,4 +67,5 @@ void k_sort2(t_stack *stack_a, t_stack *stack_b, int length)
 			length--;
 		}
 	}
+	return (stack_a);
 }

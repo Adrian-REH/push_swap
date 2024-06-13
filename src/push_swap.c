@@ -30,12 +30,12 @@ t_stack *sort(t_stack *stack_a, t_stack *stack_b, int *numbers, int length)
 	else if (length == 3)
 		simple_sort(&stack_a, length);
 	else if (length <= 7)
-		s_insertion_sort(stack_a, stack_b, length);
+		stack_a = s_insertion_sort(stack_a, stack_b, length);
 	else if (length > 7)
 	{
 
 		k_sort1(&stack_a, &stack_b, length);
-		k_sort2(stack_a, stack_b, length);
+		stack_a = k_sort2(stack_a, stack_b, length);
 	}
 	else
 		display_error("Error no hay numeros\n", 1);
@@ -50,13 +50,12 @@ t_stack *init(t_stack *stack_a, int *nb, int c)
 	i = c - 1;
 	while (i >= 0)
 	{
-		stack_a = push_stack(stack_a, 0, nb[i]);
+		push_stack(&stack_a, 0, nb[i]);
 		i--;
 	}
 	ins_sort(nb, c);
 	i = 0;
 	tmp = stack_a;
-
 	while (tmp)
 	{
 		tmp->s_index = ft_index(tmp->data, nb);

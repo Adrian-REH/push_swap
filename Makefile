@@ -8,7 +8,7 @@ OBJ_DIR				= src/obj/
 
 
 CC					= gcc
-CFLAGS				= -Wall -Werror -Wextra -g
+CFLAGS				= -Wall -Werror -Wextra -g3 -fsanitize=address,leak
 RM					= rm -f
 
 
