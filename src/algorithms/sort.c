@@ -50,7 +50,7 @@ void simple_sort(t_stack **stack, int length)
     }
 }
 
-void s_insertion_sort(t_stack **stack_a, t_stack *stack_b, int length)
+void s_insertion_sort(t_stack **stack_a, t_stack **stack_b, int length)
 {
     int min_index;
     int iter;
@@ -68,13 +68,11 @@ void s_insertion_sort(t_stack **stack_a, t_stack *stack_b, int length)
         else
             while ((*stack_a)->s_index != min_index)
                 rev_rotate(stack_a, NULL, 'a');
-        if (is_sorted((*stack_a)))
-            return;
-        push(&stack_b, stack_a, 'b');
+        push(stack_b, stack_a, 'b');
         length--;
     }
     simple_sort(stack_a, length);
     iter = 0;
     while (iter++ < n - 3)
-        push(stack_a, &stack_b, 'a');
+        push(stack_a, stack_b, 'a');
 }
