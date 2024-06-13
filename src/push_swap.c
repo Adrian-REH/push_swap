@@ -28,7 +28,7 @@ t_stack *sort(t_stack *stack_a, t_stack *stack_b, int *numbers, int length)
 	if (length == 2)
 		swap(&stack_a, NULL, 'a');
 	else if (length == 3)
-		simple_sort(stack_a, length);
+		simple_sort(&stack_a, length);
 	else if (length <= 7)
 		s_insertion_sort(stack_a, stack_b, length);
 	else if (length > 7)

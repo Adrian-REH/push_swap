@@ -22,31 +22,31 @@ int is_rot_sort(t_stack *stack, int min_s_index)
     return (0);
 }
 
-void simple_sort(t_stack *stack, int length)
+void simple_sort(t_stack **stack, int length)
 {
     int min_s_index;
     int r;
 
-    if (is_sorted(stack))
+    if (is_sorted(*stack))
         return;
-    min_s_index = get_min_index(stack);
-    r = count_r(stack, min_s_index);
-    if (is_rot_sort(stack, min_s_index))
+    min_s_index = get_min_index(*stack);
+    r = count_r(*stack, min_s_index);
+    if (is_rot_sort(*stack, min_s_index))
     {
         if (r < length - r)
-            rotate(&stack, NULL, 'a');
+            rotate(stack, NULL, 'a');
         else
-            rev_rotate(&stack, NULL, 'a');
+            rev_rotate(stack, NULL, 'a');
     }
     else
     {
-        swap(&stack, NULL, 'a');
-        if (is_sorted(stack))
+        swap(stack, NULL, 'a');
+        if (is_sorted(*stack))
             return;
         if (r < length - r)
-            rotate(&stack, NULL, 'a');
+            rotate(stack, NULL, 'a');
         else
-            rev_rotate(&stack, NULL, 'a');
+            rev_rotate(stack, NULL, 'a');
     }
 }
 
@@ -73,7 +73,7 @@ void s_insertion_sort(t_stack *stack_a, t_stack *stack_b, int length)
         push(&stack_b, &stack_a, 'b');
         length--;
     }
-    simple_sort(stack_a, length);
+    simple_sort(&stack_a, length);
     iter = 0;
     while (iter++ < n - 3)
         push(&stack_a, &stack_b, 'a');

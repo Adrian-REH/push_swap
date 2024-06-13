@@ -23,9 +23,9 @@ void swap(t_stack **stack, t_stack **both, char c)
   tmp->next = (*stack)->next;
   (*stack)->next = tmp;
   if (c == 'a' && both == NULL)
-    write(1, "ra\n", 3);
+    write(1, "sa\n", 3);
   else if (c == 'b' && both == NULL)
-    write(1, "ra\n", 3);
+    write(1, "sb\n", 3);
   else if (c == 's' && both != NULL)
   {
     swap(both, NULL, '\0');
