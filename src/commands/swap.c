@@ -31,7 +31,7 @@ void swap(t_stack **stack, t_stack **both, char c)
     swap(both, NULL, '\0');
     write(1, "ss\n", 3);
   }
-  else if (c == NULL && both != NULL)
+  else if (!c && both != NULL)
   {
     swap(both, NULL, '\0');
   }

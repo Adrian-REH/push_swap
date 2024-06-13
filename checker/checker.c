@@ -1,13 +1,18 @@
+#include "get_next_line/get_next_line.h"
+#include "data/data_c.h"
 #include "../src/push_swap.h"
+#include "../src/commands/commands.h"
+#include "../src/utils/utils.h"
+#include "../src/data/data.h"
+#include "../src/exceptions/exceptions.h"
 
 static void init(t_stack **stack_a, int *nb, int c)
 {
     int i;
-    t_stack *tmp;
 
     i = c - 1;
     while (i >= 0)
-        (push_stack(&stack_a, 0, nb[i]), i--);
+        (push_stack(stack_a, 0, nb[i]), i--);
 }
 
 static void read_and_execute(t_stack **stack_a, t_stack **stack_b)

@@ -4,6 +4,8 @@ NAME				= push_swap
 
 LIBFT				= libft/libft.a
 SRC_DIR				= src/
+CHK_DIR				= checker/
+CHK_GNL_DIR			= checker/get_next_line/
 OBJ_DIR				= src/obj/
 
 
@@ -37,17 +39,25 @@ PUSH_SWAP_DIR		=	$(SRC_DIR)push_swap.c \
 DATA_DIR			=	$(SRC_DIR)data/stack.c \
 						$(SRC_DIR)data/arg.c \
 
+BONUS_DIR			=	$(CHK_DIR)data/arg.c \
+						$(CHK_GNL_DIR)get_next_line_utils.c \
+						$(CHK_GNL_DIR)get_next_line.c \
+						$(CHK_DIR)checker.c \
+
 
 SRCS 				= $(COMMANDS_DIR) $(PUSH_SWAP_DIR) $(DATA_DIR) $(STACK_DIR) $(ALGORITHM_DIR) $(EXCEPTION_DIR) $(UTILS_DIR) 
-
+CHKS 				= $(COMMANDS_DIR) $(BONUS_DIR) $(DATA_DIR) $(STACK_DIR) $(ALGORITHM_DIR) $(EXCEPTION_DIR) $(UTILS_DIR) 
 OBJ 				= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
-
+BONUS_OBJ 			= $(CHKS:.c=.o)
 
 start:				
 					@make all
 
 $(LIBFT):
 					@make -C ./libft
+
+bonus: 				$(BONUS_OBJ) $(LIBFT) 
+					@$(CC) $(CFLAGS) $(INC) $(BONUS_OBJ) $(LIBFT) -o $(NAME)
 
 all: 				$(NAME)
 
@@ -68,4 +78,4 @@ fclean: 			clean
 
 re: 				fclean all
 
-.PHONY: 			start all clean fclean re
+.PHONY: 			start all clean fclean re bonus
