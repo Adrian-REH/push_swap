@@ -32,4 +32,6 @@ void rotate(t_stack **head, t_stack **both, char c)
     write(1, "rb\n", 3);
   else if (c == 's' && both != NULL)
     (rotate(both, NULL, '\0'), write(1, "rr\n", 3));
+  else if (c == NULL && both != NULL)
+    (rotate(both, NULL, '\0'));
 }

@@ -42,7 +42,7 @@ t_stack *sort(t_stack *stack_a, t_stack *stack_b, int *numbers, int length)
 	return stack_a;
 }
 
-t_stack *init(t_stack *stack_a, int *nb, int c)
+static t_stack *init(t_stack *stack_a, int *nb, int c)
 {
 	int i;
 	t_stack *tmp;
