@@ -6,7 +6,7 @@
 /*   By: adherrer <adherrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 01:16:23 by adherrer          #+#    #+#             */
-/*   Updated: 2024/06/08 02:21:33 by adherrer         ###   ########.fr       */
+/*   Updated: 2024/06/15 13:23:19 by adherrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 #include "../commands/commands.h"
 #include "algorithms.h"
 
-void k_sort1(t_stack **stack_a, t_stack **stack_b, int length)
+void	k_sort1(t_stack **stack_a, t_stack **stack_b, int length)
 {
-	int i;
-	int range;
+	int	i;
+	int	range;
 
 	i = 0;
 	range = ft_sqrt(length) * 14 / 10;
@@ -43,10 +43,10 @@ void k_sort1(t_stack **stack_a, t_stack **stack_b, int length)
 	}
 }
 
-t_stack *k_sort2(t_stack *stack_a, t_stack *stack_b, int length)
+t_stack	*k_sort2(t_stack *stack_a, t_stack *stack_b, int length)
 {
-	int rb_count;
-	int rrb_count;
+	int	rb_count;
+	int	rrb_count;
 
 	while (length - 1 >= 0)
 	{

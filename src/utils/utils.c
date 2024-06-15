@@ -6,15 +6,15 @@
 /*   By: adherrer <adherrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 03:41:21 by adherrer          #+#    #+#             */
-/*   Updated: 2024/06/08 03:41:35 by adherrer         ###   ########.fr       */
+/*   Updated: 2024/06/15 13:14:43 by adherrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-int ft_index(int n, int *arr)
+int	ft_index(int n, int *arr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (arr[i] != n)
@@ -22,9 +22,9 @@ int ft_index(int n, int *arr)
 	return (i);
 }
 
-int ft_sqrt(int number)
+int	ft_sqrt(int number)
 {
-	int i;
+	int	i;
 
 	if (number < 4)
 		return (1);
@@ -39,10 +39,10 @@ int ft_sqrt(int number)
 	return (i - 1);
 }
 
-int checkd_bf(int *numbers, int count)
+int	checkd_bf(int *numbers, int count)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < count)

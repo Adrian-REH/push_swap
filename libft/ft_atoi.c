@@ -6,11 +6,12 @@
 /*   By: adherrer <adherrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 22:27:24 by adherrer          #+#    #+#             */
-/*   Updated: 2024/03/25 00:19:48 by adherrer         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:53:13 by adherrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "../src/exceptions/exceptions.h"
 
 static int	ft_isspaces(char str)
 {
@@ -19,8 +20,8 @@ static int	ft_isspaces(char str)
 
 int	ft_atoi(const char *str)
 {
-	int	sign;
-	int	num;
+	int		sign;
+	long int	num;
 
 	num = 0;
 	sign = 1;
@@ -34,7 +35,9 @@ int	ft_atoi(const char *str)
 	}
 	while (ft_isdigit(*str))
 		num = num * 10 - 48 + *str++;
-	return (num * sign);
+	if (num > __INT_MAX__)
+		display_error("Error: Es un maximo\n", 1);	
+	return (((int)num) * sign);
 }
 /* int	main()
 {

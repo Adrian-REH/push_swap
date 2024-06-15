@@ -6,7 +6,7 @@
 /*   By: adherrer <adherrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 01:17:55 by adherrer          #+#    #+#             */
-/*   Updated: 2024/06/08 03:43:48 by adherrer         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:55:03 by adherrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,12 @@
 #include "data/data.h"
 #include "exceptions/exceptions.h"
 
-t_stack *sort(t_stack *stack_a, t_stack *stack_b, int *numbers, int length)
+t_stack	*sort(t_stack *stack_a, t_stack *stack_b, int *numbers, int length)
 {
 	if (is_sorted(stack_a))
 	{
 		free(numbers);
 		free_stack(stack_a);
-		display_error("Error: Stack ordenado", 1);
 	}
 	if (length == 2)
 		swap(&stack_a, NULL, 'a');
@@ -36,15 +35,13 @@ t_stack *sort(t_stack *stack_a, t_stack *stack_b, int *numbers, int length)
 		k_sort1(&stack_a, &stack_b, length);
 		stack_a = k_sort2(stack_a, stack_b, length);
 	}
-	else
-		display_error("Error no hay numeros\n", 1);
 	return (stack_a);
 }
 
-static t_stack *init(t_stack *stack_a, int *nb, int c)
+static t_stack	*init(t_stack *stack_a, int *nb, int c)
 {
-	int i;
-	t_stack *tmp;
+	int		i;
+	t_stack	*tmp;
 
 	i = c - 1;
 	while (i >= 0)
@@ -63,12 +60,12 @@ static t_stack *init(t_stack *stack_a, int *nb, int c)
 	return (stack_a);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_stack *stack_a;
-	t_stack *stack_b;
-	int count;
-	int *numbers;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	int		count;
+	int		*numbers;
 
 	if (ac == 1)
 		display_error("Error: no se pasaron numeros\n", 1);
@@ -80,7 +77,7 @@ int main(int ac, char **av)
 	{
 		free(numbers);
 		if (count == 1)
-			display_error("Error: Un numero", 1);
+			display_error("Error: Un numero", 0);
 		display_error("Error: Numeros repetidos", 1);
 	}
 	stack_a = init(stack_a, numbers, count);

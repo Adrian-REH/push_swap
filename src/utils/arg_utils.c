@@ -6,7 +6,7 @@
 /*   By: adherrer <adherrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 03:26:26 by adherrer          #+#    #+#             */
-/*   Updated: 2024/06/08 03:29:03 by adherrer         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:52:15 by adherrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 #include "../exceptions/exceptions.h"
 #include "../data/data.h"
 
-int check_digits(int argc, char **argv)
+int	check_digits(int argc, char **argv)
 {
-	int i;
-	int j;
-	int count;
+	int	i;
+	int	j;
+	int	count;
 
 	i = 1;
 	count = 0;
@@ -27,9 +27,11 @@ int check_digits(int argc, char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
-			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' ' && argv[i][j] != '-')
+			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' ' && \
+				argv[i][j] != '-')
 				return (-1);
-			if (ft_isdigit(argv[i][j]) && (argv[i][j + 1] == ' ' || argv[i][j + 1] == '\0'))
+			if (ft_isdigit(argv[i][j]) && (argv[i][j + 1] == ' ' || \
+				argv[i][j + 1] == '\0'))
 				count += 1;
 			j++;
 		}
@@ -37,14 +39,17 @@ int check_digits(int argc, char **argv)
 	}
 	return (count);
 }
-int *parse(int argc, char **argv, int count)
-{
-	char **s_numbers;
-	int *numbers;
-	int i;
-	int j;
-	int k;
 
+int	*parse(int argc, char **argv, int count)
+{
+	char	**s_numbers;
+	int		*numbers;
+	int		i;
+	int		j;
+	int		k;
+
+	if (count < 0)
+		display_error("Error: Es una letra", 1);
 	numbers = (int *)malloc(sizeof(int) * count);
 	if (!numbers)
 		return (NULL);
@@ -55,10 +60,11 @@ int *parse(int argc, char **argv, int count)
 		s_numbers = ft_split(argv[i], ' ');
 		if (!s_numbers)
 			display_error("Error al splitear los digitos\n", 1);
-		// check_range(s_numbers, numbers);
 		k = 0;
 		while (s_numbers[k])
-			numbers[j++] = ft_atoi(s_numbers[k++]);
+		{
+			numbers[j] = ft_atoi(s_numbers[k++]);
+		}
 		ft_freedom(s_numbers);
 	}
 	return (numbers);

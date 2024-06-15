@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   data.h                                             :+:      :+:    :+:   */
+/*   data_c.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adherrer <adherrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/15 13:26:50 by adherrer          #+#    #+#             */
-/*   Updated: 2024/06/15 13:26:55 by adherrer         ###   ########.fr       */
+/*   Created: 2024/06/15 13:00:00 by adherrer          #+#    #+#             */
+/*   Updated: 2024/06/15 13:01:22 by adherrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_H
-# define DATA_H
-# include "../push_swap.h"
+#ifndef DATA_C_H
+# define DATA_C_H
+# include "../../src/push_swap.h"
 
-void	push_stack(t_stack **stack, int index, int data);
-int		pop_stack(t_stack **stack);
-void	free_stack(t_stack *stack);
-void	ft_freedom(char **dst);
-void	ins_sort(int array[], int n);
+void	exeute_command(t_stack **a_bonus, t_stack **b_bonus, char *str);
+int		is_command(char *str);
 
 #endif
