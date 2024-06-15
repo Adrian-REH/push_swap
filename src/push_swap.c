@@ -23,6 +23,7 @@ t_stack	*sort(t_stack *stack_a, t_stack *stack_b, int *numbers, int length)
 	{
 		free(numbers);
 		free_stack(stack_a);
+		exit(0);
 	}
 	if (length == 2)
 		swap(&stack_a, NULL, 'a');
@@ -68,7 +69,7 @@ int	main(int ac, char **av)
 	int		*numbers;
 
 	if (ac == 1)
-		display_error("Error: no se pasaron numeros\n", 1);
+		exit(0);
 	stack_a = NULL;
 	stack_b = NULL;
 	count = check_digits(ac, av);
@@ -77,7 +78,7 @@ int	main(int ac, char **av)
 	{
 		free(numbers);
 		if (count == 1)
-			display_error("Error: Un numero", 0);
+			exit( 0);
 		display_error("Error: Numeros repetidos", 1);
 	}
 	stack_a = init(stack_a, numbers, count);
