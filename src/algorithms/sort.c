@@ -43,23 +43,16 @@ void	simple_sort(t_stack **stack, int length)
 		return ;
 	min_s_index = get_min_index(*stack);
 	r = count_r(*stack, min_s_index);
-	if (is_rot_sort(*stack, min_s_index))
-	{
-		if (r < length - r)
-			rotate(stack, NULL, 'a');
-		else
-			rev_rotate(stack, NULL, 'a');
-	}
-	else
+	if (!is_rot_sort(*stack, min_s_index))
 	{
 		swap(stack, NULL, 'a');
 		if (is_sorted(*stack))
 			return ;
-		if (r < length - r)
+	}
+			if (r < length - r)
 			rotate(stack, NULL, 'a');
 		else
 			rev_rotate(stack, NULL, 'a');
-	}
 }
 
 void	s_insertion_sort(t_stack **stack_a, t_stack **stack_b, int length)
