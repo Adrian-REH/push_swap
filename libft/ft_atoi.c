@@ -6,7 +6,7 @@
 /*   By: adherrer <adherrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 22:27:24 by adherrer          #+#    #+#             */
-/*   Updated: 2024/06/18 01:00:12 by adherrer         ###   ########.fr       */
+/*   Updated: 2024/06/24 17:18:04 by adherrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	ft_atoi(const char *str)
 	while (ft_isdigit(*str))
 		num = num * 10 - 48 + *str++;
 	if (num > __INT_MAX__)
-		display_error("Error: Es un maximo\n", 1);
+		display_error("Error\n", 1);
 	if (num < 0)
-		display_error("Error: Es un maximo\n", 1);
+		display_error("Error\n", 1);
 	return (((int)num) * sign);
 }
 /* int	main()

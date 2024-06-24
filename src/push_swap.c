@@ -6,7 +6,7 @@
 /*   By: adherrer <adherrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 01:17:55 by adherrer          #+#    #+#             */
-/*   Updated: 2024/06/17 20:44:57 by adherrer         ###   ########.fr       */
+/*   Updated: 2024/06/24 17:17:34 by adherrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	main(int ac, char **av)
 		free(numbers);
 		if (count == 1)
 			exit (0);
-		display_error("Error: Numero duplicado.", 1);
+		display_error("Error\n", 1);
 	}
 	stack_a = init(stack_a, numbers, count);
 	stack_a = sort(stack_a, stack_b, numbers, count);

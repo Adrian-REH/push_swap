@@ -6,7 +6,7 @@
 /*   By: adherrer <adherrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 03:26:26 by adherrer          #+#    #+#             */
-/*   Updated: 2024/06/18 05:45:53 by adherrer         ###   ########.fr       */
+/*   Updated: 2024/06/24 17:18:16 by adherrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	*parse(int argc, char **argv, int count)
 	int		k;
 
 	if (count <= 0)
-		display_error("Error:", 1);
+		display_error("Error\n", 1);
 	numbers = (int *)malloc(sizeof(int) * count);
 	if (!numbers)
 		return (NULL);
@@ -68,7 +68,7 @@ int	*parse(int argc, char **argv, int count)
 	{
 		s_numbers = ft_split(argv[i], ' ');
 		if (!*s_numbers)
-			display_error("Error al splitear los digitos\n", 1);
+			display_error("Error\n", 1);
 		k = 0;
 		while (s_numbers[k])
 			numbers[j++] = ft_atoi(s_numbers[k++]);

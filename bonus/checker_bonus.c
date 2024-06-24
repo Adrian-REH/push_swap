@@ -6,7 +6,7 @@
 /*   By: adherrer <adherrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:09:09 by adherrer          #+#    #+#             */
-/*   Updated: 2024/06/18 01:11:42 by adherrer         ###   ########.fr       */
+/*   Updated: 2024/06/24 17:17:54 by adherrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static void	read_and_execute(t_stack **stack_a, t_stack **stack_b)
 		else
 		{
 			free(str);
-			display_error("Error", 1);
+			display_error("Error\n", 1);
 		}
 	}
 }
@@ -95,7 +95,7 @@ int	main(int argc, char **argv)
 		free(numbers);
 		if (count == 1)
 			exit (0);
-		display_error("Error: Numeros repetidos", 1);
+		display_error("Error\n", 1);
 	}
 	init(&stack_a, numbers, count);
 	read_and_execute(&stack_a, &stack_b);
