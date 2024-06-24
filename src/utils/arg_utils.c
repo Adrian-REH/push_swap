@@ -6,7 +6,7 @@
 /*   By: adherrer <adherrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 03:26:26 by adherrer          #+#    #+#             */
-/*   Updated: 2024/06/24 17:18:16 by adherrer         ###   ########.fr       */
+/*   Updated: 2024/06/24 17:47:53 by adherrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 #include "../exceptions/exceptions.h"
 #include "../data/data.h"
 
-int check_conditions(char **argv, int i, int j)
+int	check_conditions(char **argv, int i, int j)
 {
 	return ((!ft_isdigit(argv[i][j]) && argv[i][j] != ' ' && \
 				argv[i][j] != '-' && argv[i][j] != '+') || \
 				(ft_isdigit(argv[i][j]) && (argv[i][j + 1] == '-' || \
-				 argv[i][j + 1] == '+')) || \
+				argv[i][j + 1] == '+')) || \
 				((argv[i][j] == '-' || argv[i][j] == '+') && \
-				 !ft_isdigit(argv[i][j + 1])));
+				!ft_isdigit(argv[i][j + 1])));
 }
 
 int	check_digits(int argc, char **argv)

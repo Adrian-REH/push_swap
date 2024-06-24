@@ -6,7 +6,7 @@
 /*   By: adherrer <adherrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:09:09 by adherrer          #+#    #+#             */
-/*   Updated: 2024/06/24 17:17:54 by adherrer         ###   ########.fr       */
+/*   Updated: 2024/06/24 17:44:15 by adherrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,5 @@ int	main(int argc, char **argv)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-	free(numbers);
-	free_stack(stack_a);
+	(free(numbers), free_stack(stack_a));
 }
